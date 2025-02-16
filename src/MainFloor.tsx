@@ -8,34 +8,26 @@ export const MainFloor = (): JSX.Element => {
       <AreaCard hash={'main'} icon={'mdi:living-room'} image={MAIN_LOGO} title={'Main'}>
         <Column cssStyles={{ paddingTop: '1rem' }}>
           <Row fullWidth gap={'1rem'} cssStyles={{ padding: '1rem' }} justifyContent={'start'} alignItems={'start'}>
-            <Group
-              title={'Master Switches'}
-              className={'!pt-0 !pb-2'}
-            >
+            <Group title={'Master Switches'} className={'!pt-0 !pb-2'}>
               <Row fullWidth>
-                  <ButtonCard
-                    entity={MAIN_SWITCH.entity as any}
-                    service={'toggle'}
-                    className={'!p-0'}
-                    icon={MAIN_SWITCH.icon}
-                    title={MAIN_SWITCH.title}
-                  />
-                </Row>
+                <ButtonCard
+                  entity={MAIN_SWITCH.entity as any}
+                  service={'toggle'}
+                  className={'!p-0'}
+                  icon={MAIN_SWITCH.icon}
+                  title={MAIN_SWITCH.title}
+                />
+              </Row>
 
-                <Row gap={'1rem'}>
-                  {MAIN_GROUP_LIGHTS.map(group => {
-                    return (
-                      <FabCard
-                      entity={group.entity as any}
-                      icon={group.icon}
-                      service={'toggle'}
-                      title={group.title}
-                    >
+              <Row gap={'1rem'}>
+                {MAIN_GROUP_LIGHTS.map(group => {
+                  return (
+                    <FabCard entity={group.entity as any} icon={group.icon} service={'toggle'} title={group.title}>
                       {group.title}
                     </FabCard>
-                    )
-                  })}
-                </Row>
+                  );
+                })}
+              </Row>
             </Group>
             {MAIN_INDIVIDUAL_LIGHTS.map(area => {
               return (
