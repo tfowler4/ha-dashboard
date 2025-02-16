@@ -1,6 +1,6 @@
-import { AreaCard, ButtonCard, CardBase, Column, FeatureEntity, Group, Row } from '@hakit/components';
+import { AreaCard, ButtonCard, Column, FabCard, Group, Row } from '@hakit/components';
 import { JSX } from 'react';
-import { MAIN_LIGHTS, MAIN_LOGO } from './entities';
+import { MAIN_GROUP_LIGHTS, MAIN_INDIVIDUAL_LIGHTS, MAIN_LOGO, MAIN_SWITCH } from './entities';
 
 export const MainFloor = (): JSX.Element => {
   return (
@@ -11,50 +11,36 @@ export const MainFloor = (): JSX.Element => {
             <Group
               title={'Master Switches'}
               className={'!pt-0 !pb-2'}
-              cssStyles={
-                '.header-title { padding:.5rem !important; } .card-base { width: 100% !important; } .features { justify-content: center !important; padding-top:.5rem !important; padding-bottom:.5rem !important; }'
-              }
             >
-              <Column gap={'1rem'} cssStyles={{ padding: '1rem' }} justifyContent={'start'} alignItems={'start'}>
-                <ButtonCard
-                  entity={'light.main_lights' as any}
-                  layoutType={'slim'}
-                  service={'turnOn'}
-                  className={'!p-0'}
-                  icon={'mdi-check-circle'}
-                  title={'Turn On Main Lights'}
-                />
-              </Column>
-              <Column gap={'1rem'} cssStyles={{ padding: '1rem' }} justifyContent={'start'} alignItems={'start'}>
-                <ButtonCard
-                  entity={'light.main_lights' as any}
-                  layoutType={'slim'}
-                  service={'turnOff'}
-                  className={'!p-0'}
-                  icon={'mdi-cross-circle'}
-                  title={'Turn Off Main Lights'}
-                />
-              </Column>
+              <Row fullWidth>
+                  <ButtonCard
+                    entity={MAIN_SWITCH.entity as any}
+                    service={'toggle'}
+                    className={'!p-0'}
+                    icon={MAIN_SWITCH.icon}
+                    title={MAIN_SWITCH.title}
+                  />
+                </Row>
 
-              <CardBase
-                disableActiveState
-                features={[
-                  <FeatureEntity key={'2'} entity={'light.family_room_lights' as any} service={'toggle'}>
-                    Family Room Lights
-                  </FeatureEntity>,
-                  <FeatureEntity key={'3'} entity={'light.kitchen_lights' as any} service={'toggle'}>
-                    Kitchen Lights
-                  </FeatureEntity>,
-                  <FeatureEntity key={'4'} entity={'light.living_room_lights' as any} service={'toggle'}>
-                    Living Lights
-                  </FeatureEntity>,
-                ]}
-              ></CardBase>
+                <Row gap={'1rem'}>
+                  {MAIN_GROUP_LIGHTS.map(group => {
+                    return (
+                      <FabCard
+                      entity={group.entity as any}
+                      icon={group.icon}
+                      service={'toggle'}
+                      title={group.title}
+                    >
+                      {group.title}
+                    </FabCard>
+                    )
+                  })}
+                </Row>
             </Group>
-            {MAIN_LIGHTS.map(area => {
+            {MAIN_INDIVIDUAL_LIGHTS.map(area => {
               return (
                 <>
-                  <Group title={area.title} className={'!pt-0 !pb-2'} cssStyles={'.header-title { padding:.5rem !important; }'}>
+                  <Group title={area.title} className={'!pt-0 !pb-2'} collapsed={true}>
                     {area.lights.map((light, index) => (
                       <>
                         <ButtonCard entity={light as any} layoutType={'slim'} service={'toggle'} key={index} className={'!p-0'} />
