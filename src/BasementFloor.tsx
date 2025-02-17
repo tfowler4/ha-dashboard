@@ -1,4 +1,4 @@
-import { AreaCard, ButtonCard, Column, FabCard, Group, Row } from '@hakit/components';
+import { AreaCard, ButtonCard, ClimateCard, Column, FabCard, Group, Row } from '@hakit/components';
 import { JSX } from 'react';
 import { BASEMENT_INDIVIDUAL_LIGHTS, BASEMENT_GROUP_LIGHTS, BASEMENT_LOGO, BASEMENT_SWITCH } from './entities';
 
@@ -28,6 +28,10 @@ export const BasementFloor = (): JSX.Element => {
                   );
                 })}
               </Row>
+            </Group>
+            
+            <Group title={'Miscellaneous'} className={'!pt-0 !pb-2'} collapsed={false}>
+              <ClimateCard entity="climate.basement_thermostat" />
             </Group>
 
             {BASEMENT_INDIVIDUAL_LIGHTS.map(area => {

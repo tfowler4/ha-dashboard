@@ -43,6 +43,7 @@ export const BASEMENT_GROUP_LIGHTS = [
   { title: 'Entertainment', entity: 'light.entertainment_lights', icon: 'mdi:movie-open' },
   { title: 'Game', entity: 'light.game_lights', icon: 'mdi:controller' },
   { title: 'Hallway', entity: 'light.hallway_lights', icon: 'mdi:door-open' },
+  { title: 'Walkout', entity: 'light.walkout_lights', icon: 'mdi:chandelier' },
 ];
 export const BASEMENT_LOGO = 'https://thumbs.dreamstime.com/b/colorful-led-lights-illuminate-modern-tavern-light-games-322938916.jpg';
 
@@ -94,3 +95,27 @@ export const MAIN_GROUP_LIGHTS = [
 ];
 export const MAIN_LOGO =
   'https://media.istockphoto.com/id/1300873599/photo/modern-living-room-interior.jpg?s=612x612&w=0&k=20&c=_aPBR0fnpoifP3TZvkVph221Dx3Zt4z0IlP1jHBGYmw=';
+
+// outdoor
+export const LIGHTS_BACK_PORCH = ['light.back_porch_light', 'light.string_lights_1', 'light.string_lights_2'] as EntityName[];
+export const LIGHTS_FRONT_PORCH = [
+  'light.front_porch_1',
+  'light.front_porch_2',
+] as EntityName[];
+export const LIGHTS_DRIVEWAY = [
+  'light.flood_light_1',
+  'light.flood_light_2',
+] as EntityName[];
+export const OUTDOOR_SWITCH = { title: 'All Outdoor Lights', entity: 'light.outdoor_lights', icon: 'mdi-power' };
+export const OUTDOOR_INDIVIDUAL_LIGHTS = [
+  { title: 'Front Porch', lights: LIGHTS_FRONT_PORCH },
+  { title: 'Back Porch', lights: LIGHTS_BACK_PORCH },
+  { title: 'Driveway', lights: LIGHTS_DRIVEWAY },
+];
+export const OUTDOOR_GROUP_LIGHTS = [
+  { title: 'Front Porch', entity: 'light.front_porch_lights', icon: 'mdi:home' },
+  { title: 'Back Porch', entity: 'light.back_porch_lights', icon: 'mdi:home-outline' },
+  { title: 'Driveway', entity: 'light.driveway_lights', icon: 'mdi:garage' },
+];
+export const OUTDOOR_LOGO =
+  'https://media.istockphoto.com/id/168325352/photo/twilight-exterior-of-home-and-landscape.jpg?s=612x612&w=0&k=20&c=Fqq0XI7gOfSQOHZR2yA9LG8yK9i0rPsZBFT4U-zeouE=';

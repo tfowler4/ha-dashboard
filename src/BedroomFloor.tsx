@@ -1,4 +1,4 @@
-import { AreaCard, ButtonCard, Column, FabCard, Group, Row } from '@hakit/components';
+import { AreaCard, ButtonCard, ClimateCard, Column, FabCard, Group, Row, SensorCard } from '@hakit/components';
 import { JSX } from 'react';
 import { BEDROOM_GROUP_LIGHTS, BEDROOM_INDIVIDUAL_LIGHTS, BEDROOM_LOGO, BEDROOM_SWITCH } from './entities';
 
@@ -29,6 +29,13 @@ export const BedroomFloor = (): JSX.Element => {
                 })}
               </Row>
             </Group>
+            
+            <Group title={'Miscellaneous'} className={'!pt-0 !pb-2'} collapsed={false}>
+              <ClimateCard entity="climate.upstairs_thermostat" />
+              <ButtonCard entity={'humidifier.master_bedroom_humidifier'} />
+              <SensorCard entity={'humidifier.master_bedroom_humidifier'} />
+            </Group>
+
             {BEDROOM_INDIVIDUAL_LIGHTS.map(area => {
               return (
                 <>
