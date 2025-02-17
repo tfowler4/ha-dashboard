@@ -29,9 +29,9 @@ export const BasementFloor = (): JSX.Element => {
                 })}
               </Row>
             </Group>
-            
+
             <Group title={'Miscellaneous'} className={'!pt-0 !pb-2'} collapsed={false}>
-              <ClimateCard entity="climate.basement_thermostat" />
+              <ClimateCard entity='climate.basement_thermostat' />
             </Group>
 
             {BASEMENT_INDIVIDUAL_LIGHTS.map(area => {

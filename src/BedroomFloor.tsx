@@ -1,8 +1,15 @@
-import { AreaCard, ButtonCard, ClimateCard, Column, FabCard, Group, Row, SensorCard } from '@hakit/components';
+import { AreaCard, ButtonCard, ClimateCard, Column, EntitiesCard, EntitiesCardRow, FabCard, Group, RelatedEntity, Row } from '@hakit/components';
 import { JSX } from 'react';
 import { BEDROOM_GROUP_LIGHTS, BEDROOM_INDIVIDUAL_LIGHTS, BEDROOM_LOGO, BEDROOM_SWITCH } from './entities';
+import { useEntity } from '@hakit/core';
 
 export const BedroomFloor = (): JSX.Element => {
+  const humidifier = useEntity('humidifier.master_bedroom_humidifier')
+
+  const toggleHumidifier = () => {
+    humidifier.service.toggle()
+  }
+
   return (
     <>
       <AreaCard hash={'bedroom'} icon={'mdi:bed-king'} image={BEDROOM_LOGO} title={'Upstairs'}>
@@ -29,11 +36,19 @@ export const BedroomFloor = (): JSX.Element => {
                 })}
               </Row>
             </Group>
-            
+
             <Group title={'Miscellaneous'} className={'!pt-0 !pb-2'} collapsed={false}>
-              <ClimateCard entity="climate.upstairs_thermostat" />
-              <ButtonCard entity={'humidifier.master_bedroom_humidifier'} />
-              <SensorCard entity={'humidifier.master_bedroom_humidifier'} />
+              <ClimateCard entity='climate.upstairs_thermostat' />
+              <ButtonCard entity='fan.jaf_purifier' />
+              <ButtonCard entity='fan.miles_purifier' />
+              <ButtonCard entity='fan.hallway_purifier' />
+              <ButtonCard entity='humidifier.master_bedroom_humidifier' relatedEntities={<><RelatedEntity entity="sensor.master_bedroom_humidifier_current_humidity" /></>} />
+              <EntitiesCard includeLastUpdated>
+                <EntitiesCardRow entity="fan.jaf_purifier" />
+                <EntitiesCardRow entity="fan.miles_purifier" />
+                <EntitiesCardRow entity="fan.hallway_purifier" />
+                <EntitiesCardRow entity="humidifier.master_bedroom_humidifier" onClick={toggleHumidifier}/>
+              </EntitiesCard>
             </Group>
 
             {BEDROOM_INDIVIDUAL_LIGHTS.map(area => {

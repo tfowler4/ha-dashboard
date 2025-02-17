@@ -56,14 +56,17 @@ export const LIGHTS_MASTERBEDROOM = [
   'light.vannary_light_2',
 ] as EntityName[];
 export const LIGHTS_BEDROOMHALLWAY = ['light.bedroom_hallway_1', 'light.bedroom_hallway_2', 'light.bedroom_hallway_3'] as EntityName[];
+export const LIGHTS_MILESROOM = ['light.nursery'] as EntityName[];
 export const BEDROOM_SWITCH = { title: 'All Upstairs Lights', entity: 'light.upstairs_lights', icon: 'mdi-power' };
 export const BEDROOM_INDIVIDUAL_LIGHTS = [
   { title: 'Master Bedroom', lights: LIGHTS_MASTERBEDROOM },
   { title: 'Bedroom Hallway', lights: LIGHTS_BEDROOMHALLWAY },
+  { title: "Miles' Room", lights: LIGHTS_MILESROOM },
 ];
 export const BEDROOM_GROUP_LIGHTS = [
   { title: 'Master Bedroom', entity: 'light.master_bedroom_lights', icon: 'mdi:bed-king' },
   { title: 'Bedroom Hallway', entity: 'light.bedroom_hallway_lights', icon: 'mdi:door-open' },
+  { title: "Miles' Room", entity: 'light.miles_room_lights', icon: 'mdi:baby-face' },
 ];
 export const BEDROOM_LOGO = 'https://www.shutterstock.com/image-photo/stylish-interior-bedroom-comfortable-bed-600nw-2515786939.jpg';
 
@@ -98,14 +101,8 @@ export const MAIN_LOGO =
 
 // outdoor
 export const LIGHTS_BACK_PORCH = ['light.back_porch_light', 'light.string_lights_1', 'light.string_lights_2'] as EntityName[];
-export const LIGHTS_FRONT_PORCH = [
-  'light.front_porch_1',
-  'light.front_porch_2',
-] as EntityName[];
-export const LIGHTS_DRIVEWAY = [
-  'light.flood_light_1',
-  'light.flood_light_2',
-] as EntityName[];
+export const LIGHTS_FRONT_PORCH = ['light.front_porch_1', 'light.front_porch_2'] as EntityName[];
+export const LIGHTS_DRIVEWAY = ['light.flood_light_1', 'light.flood_light_2'] as EntityName[];
 export const OUTDOOR_SWITCH = { title: 'All Outdoor Lights', entity: 'light.outdoor_lights', icon: 'mdi-power' };
 export const OUTDOOR_INDIVIDUAL_LIGHTS = [
   { title: 'Front Porch', lights: LIGHTS_FRONT_PORCH },

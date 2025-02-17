@@ -29,9 +29,9 @@ export const MainFloor = (): JSX.Element => {
                 })}
               </Row>
             </Group>
-            
+
             <Group title={'Miscellaneous'} className={'!pt-0 !pb-2'} collapsed={false}>
-              <ClimateCard entity="climate.main_floor_thermostat" />
+              <ClimateCard entity='climate.main_floor_thermostat' />
             </Group>
 
             {MAIN_INDIVIDUAL_LIGHTS.map(area => {
